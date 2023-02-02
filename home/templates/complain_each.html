@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="w3-container" style="margin-right:20%; margin-left:20%; padding:20px">
+
+<!-- For Title -->
+<div class="w3-container w3-card w3-bar-item w3-text-black  w3-round-xlarge" style="padding:20px">
+    <span class="w3-xlarge w3-text-red"><b>{{ complains.title }}</b> </span><br>
+    <small>Severity - {{ complains.severity }} <br>  Municipality - {{complains.municipality}}</small> 
+
+</div>
+
+<!-- Description -->
+<div class="w3-container w3-panel w3-left-align w3-large w3-serif " style="line-height: 24px">
+    <p style="line-height: 24px;">{{ complains.description|safe }}
+    </p>
+</div>
+
+<div class="w3-container likes">
+    {% if request.user.is_authenticated %}
+    <form method="post" action="{% url 'complain_like' complains.id %}">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{ complains.id }}" class="w3-round-large "> Like </button>
+    </form> &nbsp;&nbsp; {{ likes }}
+    <br>
+    <form method="post" action="{% url 'complain_dislike' complains.id %}">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{ complains.id }}" class="w3-round-large "> Dislike
+        </button>
+    </form> &nbsp;&nbsp;&nbsp; {{ dislikes }}
+
+    {% else %}
+
+    {{ likes }} likes
+    <br>
+    {{ dislikes }} dislikes
+
+    {% endif %}
+
+</div>
+
+
+<div id="Tokyo" class="w3-container city" style="display:none">
+    <h2>You Can Post Your Forum Here</h2>
+    <p>YApple</p>
+</div>
+
+</div>
+
+
+
+{% endblock %}

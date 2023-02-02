@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="w3-container w3-serif w3-text-black" style="margin-right:20%; margin-left:20%; padding:20px;">
+
+<div >
+    <div class="w3-xlarge w3-text-red">
+        <b>{{ question.title }}</b>
+        <br>
+        <span><small>{{ question.users }}</small></span>
+    </div>
+    <hr>
+    <div class="w3-xlarge w3-text-red">
+        <b>{{ question.description}}</b>
+    </div>
+    <hr>
+    <br>
+    <h2>Discussion</h2>
+    {% for answer in answers %}
+    <div class="w3-large ">
+        {{ answer.description }}
+    </div>
+    {% endfor %}
+
+</div>
+<br>
+<br>
+
+{% if request.user.is_authenticated %}
+
+<p class="w3-large w3-card w3-center w3-round-large  w3-serif w3-text-red"><b> POST YOUR VIEW </b></p>
+<div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+        {{ answer_box.as_p }}
+        <button class="w3-large w3-card w3-center  w3-serif w3-text-red" type="submit">submit</button>
+    </form>
+</div>
+
+{% else %}
+<button href="{% url 'login' %}"> click to comment </button>
+{% endif %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    {{ ideas.title }}
+    <br>
+    {{ ideas.description }}
+    <br>
+    {{ ideas.municipality }}
+    <br>
+    {% if request.user.is_authenticated %}
+    <form method="post" action="{% url 'idea_like' ideas.id %}">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{ ideas.id }}" ,class="btn btn-primary btn-sm"> Like </button>
+    </form>
+    <br>
+    <form method="post" action="{% url 'idea_dislike' ideas.id %}">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{ ideas.id }}" ,class="btn btn-primary btn-sm"> Dislike
+        </button>
+    </form>
+    {% else %}
+    {{ likes }}-likes
+
+    {{ dislikes }}-dislikes
+
+    {% endif %}
+
+</div>
+
+
+{% endblock content %}

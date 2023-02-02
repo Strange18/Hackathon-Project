@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% for complain in complains %}
+<div class="outer">
+    <div>
+        <a href="{% url 'complain_view_each' complain.id %}">{{ complain }}</a>
+        
+    </div>
+</div>
+
+{% endfor %}
+
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br><br><br>
+<div class="w3-container w3-center">
+
+    <form method="post" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">submit</button>
+    </form>
+</div>
+<br>
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

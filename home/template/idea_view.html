@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for idea in ideas %}
+<div class="outer">
+    <div>
+        <a href="{% url 'idea_view_each' idea.id %}">{{ idea }}</a>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock content %}

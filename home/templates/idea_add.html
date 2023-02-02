@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content%}
+
+
+<br>
+<h3 class="w3-serif w3-container  w3-center w3-xxlarge"> <b>!! Add Your :<label style="color:brown"> ideas
+      !!</label></b></h3>
+<div class="w3-row w3-xlarge " style="padding:10px">
+  <div class="w3-col m3  w3-center">
+    <p></p>
+  </div>
+
+  <div class="w3-col m6 w3-serif w3-small" style="padding:50px">
+    <div class="w3-card-4 w3-round-large w3-margin-bottom" style=" padding : 30px;color:brown;">
+
+      <form method="post">
+        {% csrf_token %}
+        <label class="w3-large"><i class="fa fa-user"></i> Title</label>
+
+        <input class="w3-input w3-border w3-round-large w3-small " {{idea.title}}>
+        <br>
+        <label class="w3-large"> <i class="fas fa-marker"></i>Description</label>
+        <textarea class="w3-input w3-border w3-round-large w3-small" {{idea.description}}></textarea>
+        <br>
+        <div>
+          <label class="w3-large"> Upload Photo (If Any) </label><br>
+          <input class="w3-border w3-small w3-small" {{idea.image }}>
+        </div><br>
+        <div>
+          <label class="w3-large">Municipality</label><br>
+          <select name="muncipality" {{ idea.municipality}}>
+          </select>
+
+        </div>
+
+        <br>
+        <div class="w3-panel  w3-round-xlarge w3-serif" style="padding: 3px;">
+          <button class="w3-button w3-block w3-teal ">Post The Forum</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="w3-col m3  w3-center">
+      <p></p>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}
