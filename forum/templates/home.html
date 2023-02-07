@@ -3,22 +3,28 @@
 {% block title %}
 Home
 {% endblock title%}
+
 {% block content %}
 
 <br><br>
-{% for questioned in questions %}
-<div class="w3-card w3-container w3-round-large w3-text-black"  style="margin-right:20%;margin-bottom:20px ; margin-left:20%; padding:10px">
-    <div class="row g-0">
-        <div class="col-md-8">
-            <div class="w3-serif card-body">
-                <h3 class="w3-serif card-title w3-large"><b>{{ questioned.title }}</b></h3>
-                <p class="w3-serif card-text">{{ questioned.description|truncatechars:50 }}</p>
-                <a class="w3-serif btn-primary w3-round-large" style="padding:10px;" href="{% url 'question' questioned.id %}" role="button">Read More</a>
-                <p class="w3-serif card-text"><small class="text-muted">{{ questioned.date}}</small></p>
+
+<div class="card">
+    {% for questioned in questions %}
+    <div class="w3-card w3-container w3-round-large w3-text-black"
+        style="margin-right:20%;margin-bottom:20px ; margin-left:20%; padding:10px">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="w3-serif card-body">
+                    <h3 class="w3-serif card-title w3-large"><b>{{ questioned.title }}</b></h3>
+                    <p class="w3-serif card-text">{{ questioned.description|truncatechars:50 }}</p>
+                    <a class="w3-serif btn-primary w3-round-large" style="padding:10px;"
+                        href="{% url 'question' questioned.id %}" role="button">Read More</a>
+                    <p class="w3-serif card-text"><small class="text-muted">{{ questioned.date}}</small></p>
+                </div>
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
 {% endblock %}

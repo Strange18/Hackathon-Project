@@ -2,44 +2,38 @@
 {% block content %}
 
 
-<!--{% for complain in complains %}-->
-<!--<div class="outer">-->
-<!--    <div>-->
-<!--        {{ complain }}-->
-<!--    </div>-->
-<!--</div>-->
-<!--{% endfor %}-->
 <br>
 <br>
 
-<div class="w3-container w3-text-black">
-    <h3 style="color: teal" class="w3-bar w3-panel w3-xlarge w3-round w3-border-top w3-border-bottom  w3-large w3-serif"><b> View
+<div class="h1">
+    <h3 style="color: teal"><b> View
             The Complaints : </b></h3>
 </div>
 
 
 <!-- Course Detail-->
 {% for complain in complains %}
-<div class="w3-row w3-card w3-round-large w3-text-black w3-container w3-margin-top w3-round-large w3-margin-bottom"
-    style="margin-left:30px; margin-right:30px; margin-bottom:20px ">
-    <div class="w3-quarter w3-container " style="width:270px">
-        <img src="#" class="w3-bar-item w3-circle w3-hide-small" style="width:220px">
+<div class="card" style="margin-left:30px; margin-right:30px; margin-bottom:20px ">
+    <div class="" style="padding:10px">
+        <span class="fw-normal"><b> {{ complain.title }}</b> </span><br>
     </div>
-    <div class="w3-threequarter w3-container w3-xlarge w3-serif" style="padding:10px">
-        <span class="w3-text-red"><b> {{ complain.title }}</b> </span><br>
-        <span class="w3-small"><b>By : </b> </span><br>
-        <span class="w3-small"><b>Severity- {{ complain.severity}}</b> </span><br>
-        <span class="w3-small"><b>Municipality Targeted- {{ complain.municipality}}</b> </span><br>
+    <div class="fw-light" style="padding:10px">
+        <span class="fw-normal"><b> By : {{ complain.users }} </b> </span><br>
+        <span class="fw-normal"><b> Severity- {{ complain.severity}}</b> </span><br>
+        <span class="fw-normal"><b> Municipality Targeted- {{ complain.municipality}}</b> </span><br>
 
 
         <h3 style="font-size:small; line-height: 24px;" class="w3-serif">
             {{ complain.description|truncatechars:50|safe }}
         </h3>
 
-    
-        <button onclick="location.href='{% url 'complain_view_each' complain.id %}'" type="button" class="button w3-round-xlarge">View Detail</button>
 
+
+        <button onclick="location.href='{% url 'complain_view_each' complain.id %}'" type="button"
+            class="btn btn-primary">View Detail</button>
     </div>
+
+
 </div>
 {% endfor %}
 <br>

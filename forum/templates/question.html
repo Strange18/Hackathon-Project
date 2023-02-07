@@ -1,45 +1,59 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <div class="w3-container w3-serif w3-text-black" style="margin-right:20%; margin-left:20%; padding:20px;">
 
-<div >
-    <div class="w3-xlarge w3-text-red">
-        <b>{{ question.title }}</b>
+    <div>
+        <div class="w3-xlarge w3-text-red">
+            <b>{{ question.title }}</b>
+            <br>
+            <span><small>{{ question.users }}</small></span>
+        </div>
+        <hr>
+        <div class="w3-xlarge w3-text-red">
+            <b>{{ question.description}}</b>
+        </div>
+        <hr>
         <br>
-        <span><small>{{ question.users }}</small></span>
+        <h2>Discussion</h2>
+        {% for answer in answers %}
+        <div class="card justify-content-center">
+
+
+            <div class="fw-semibold">
+                {{ answer.users }} 
+                <br>
+            </div>
+            <div class="fw-normal ">
+                {{ answer.description }}
+            </div>
+            <div class="image">
+                <img src="{{ answer.image }}" alt="">
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+
     </div>
-    <hr>
-    <div class="w3-xlarge w3-text-red">
-        <b>{{ question.description}}</b>
-    </div>
-    <hr>
     <br>
-    <h2>Discussion</h2>
-    {% for answer in answers %}
-    <div class="w3-large ">
-        {{ answer.description }}
+    <br>
+
+    {% if request.user.is_authenticated %}
+
+    <p class="w3-large w3-card w3-center w3-round-large  w3-serif w3-text-red"><b> POST YOUR VIEW </b></p>
+    <div class="form-group">
+        <form method="post">
+            {% csrf_token %}
+            {{ answer_box|crispy }}
+            <br>
+            <button class="btn btn-primary" type="submit">submit</button>
+        </form>
     </div>
-    {% endfor %}
 
-</div>
-<br>
-<br>
-
-{% if request.user.is_authenticated %}
-
-<p class="w3-large w3-card w3-center w3-round-large  w3-serif w3-text-red"><b> POST YOUR VIEW </b></p>
-<div class="form-group">
-    <form method="post">
-        {% csrf_token %}
-        {{ answer_box.as_p }}
-        <button class="w3-large w3-card w3-center  w3-serif w3-text-red" type="submit">submit</button>
-    </form>
-</div>
-
-{% else %}
-<button href="{% url 'login' %}"> click to comment </button>
-{% endif %}
+    {% else %}
+    <button class = "btn btn-primary" href="{% url 'login' %}"> click to comment </button>
+    {% endif %}
 </div>
 
 {% endblock content %}

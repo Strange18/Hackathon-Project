@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <br>
@@ -7,19 +8,11 @@
 <div class="w3-container w3-card " style="margin-left:30%; margin-right:30%; padding:20px">
     <form method="post">
         {% csrf_token %}
-        <p class="w3-large w3-text-red "><b>NAME</b></p>
-        <input class="w3-input w3-border w3-round-large w3-small" style="padding:10"  {{ question.title }}>
-
-        <p class="w3-large w3-text-red "><b>DESCRIPTION</b></p>
-        <textarea class="w3-input w3-border w3-round-large w3-small" style="padding:10" {{ question.description }}></textarea>
-        <br>
-        <p class="w3-large w3-text-red w3-hover-red "><b>IMAGE</b></p>
-        <br>
-        {{ question.image }}
+        {{ question|crispy }}
         <br>
         <br>
 
-        <button class="w3-hover-red" type="submit">submit</button>
+        <button class="btn btn-primary" type="submit">submit</button>
     </form>
 </div>
 </div>

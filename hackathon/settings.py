@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home',
     'forum',
     'authe',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -135,11 +136,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# email sending
+# authetication routes
 
 LOGIN_URL = '/login'
 LOGOUT_URL = 'home'
 
+
+# setting for crispy forms
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# email sending
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
