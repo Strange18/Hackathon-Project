@@ -15,20 +15,16 @@
 {% for complain in complains %}
 <div class="card" style="margin-left:30px; margin-right:30px; margin-bottom:20px ">
     <div class="" style="padding:10px">
-        <span class="fw-normal"><b> {{ complain.title }}</b> </span><br>
+        <p class="fw-semibold"><b> {{ complain.title }}</b> </p>
     </div>
     <div class="fw-light" style="padding:10px">
-        <span class="fw-normal"><b> By : {{ complain.users }} </b> </span><br>
-        <span class="fw-normal"><b> Severity- {{ complain.severity}}</b> </span><br>
-        <span class="fw-normal"><b> Municipality Targeted- {{ complain.municipality}}</b> </span><br>
+        <p class="fw-normal">By : {{ complain.users }}</p>
+        <p class="fw-normal"> Severity- {{ complain.severity}} </p>
+        <p class="fw-normal"> Municipality Targeted- {{ complain.municipality}} </p>
 
 
-        <h3 style="font-size:small; line-height: 24px;" class="w3-serif">
-            {{ complain.description|truncatechars:50|safe }}
-        </h3>
-
-
-
+        <p class="fw-normal"> {{ complain.description|truncatechars:50|safe }} </p>
+    
         <button onclick="location.href='{% url 'complain_view_each' complain.id %}'" type="button"
             class="btn btn-primary">View Detail</button>
     </div>
@@ -36,15 +32,6 @@
 
 </div>
 {% endfor %}
-<br>
 
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 {% endblock content %}

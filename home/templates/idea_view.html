@@ -15,9 +15,9 @@
 {% for idea in ideas %}
 <div class="card" style="margin-left:30px; margin-right:30px; padding:10px">
     <div class="w3-threequarter w3-container w3-xlarge w3-serif">
-        <span><b> {{ idea.title }}</b> </span><br>
-        <span class="fw-small"><b>By- {{ idea.users}}</b> </span><br>
-        <span class="fw-small"><b>Municipality Targeted- {{ idea.municipality}}</b> </span><br>
+        <p class="fw-normal"> {{ idea.title }}</p>
+        <p class="fw-normal">By- {{ idea.users}} </p>
+        <p class="fw-normal">Municipality Targeted- {{ idea.municipality}} </p>
 
 
         <h3 style="font-size:small; line-height: 24px;" class="fw-small">
@@ -30,15 +30,5 @@
 </div>
 <br>
 {% endfor %}
-<br>
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 {% endblock content %}
