@@ -27,6 +27,8 @@ pip install -r requirements.txt
 
 ```
 Teammates:
-@pragyanbhattarai04
-@Biplav20
+
+ # @pragyanbhattarai04
+
+ # @Biplav20
 
