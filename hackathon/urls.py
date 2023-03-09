@@ -21,6 +21,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('forum.urls')),
     path('',include('authe.urls')),
-    path('api/',include('apis.urls')),
 
 ]

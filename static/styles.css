@@ -1,0 +1,147 @@
+  .topnav {
+      background-color: #333;
+      overflow: hidden;
+  }
+
+  .complainnav {
+      overflow: hidden;
+  }
+
+  /* Style the links inside the navigation bar */
+  .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+  }
+
+  /* Change the color of links on hover */
+  .topnav a:hover {
+      background-color: purple;
+      color: white;
+  }
+
+  /* Add a color to the active/current link */
+  .topnav a.active {
+      background-color: purple;
+      color: white;
+  }
+
+  /* Right-aligned section inside the top navigation */
+  .topnav-right {
+      float: right;
+  }
+
+  footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      height: auto;
+      padding-top: 2px;
+      width: 100vw;
+      color: white;
+  }
+
+  .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+
+  }
+
+  h3 {
+      font-size: 1.5rem;
+      font-weight: 200;
+      text-transform: capitalize;
+      line-height: 3rem;
+  }
+
+  p {
+      max-width: 400px;
+      margin: 1px auto;
+      line-height: 12px;
+      font-size: 14px;
+      color: #cacdd2;
+  }
+
+  #logos {
+      height: 84px;
+      background: url(images/bar-bg.jpg) repeat-x;
+  }
+
+  .table {
+      display: table;
+      /* Allow the centering to work */
+      margin: 0 auto;
+  }
+
+  ul#horizontal-logos {
+      min-width: 696px;
+      list-style: none;
+      padding-top: 20px;
+  }
+
+  ul#horizontal-logos li {
+      width: 25px;
+      height: 25px;
+      display: inline;
+      margin: 0 50px 0 0;
+  }
+
+  .padded {
+      padding: 8px 0 0 0;
+      text-align: center;
+  }
+
+  .dropdown-content a {
+      float: none;
+      color: white;
+      background-color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+  }
+
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      padding: 12px 16px;
+      z-index: 1;
+  }
+
+  .dropdown {
+      position: relative;
+      display: inline-block;
+  }
+
+  .navbar {
+      overflow: hidden;
+      background-color: #333;
+
+  }
+
+  .dropdown:hover .dropdown-content {
+      display: contents;
+
+
+  }
+
+  .outer {
+      width: 75vw;
+      border: 1px solid #D3D3D3;
+      box-shadow: 5px 5px #808080;
+      padding: 10px;
+      margin: 8px;
+  }
+
+  

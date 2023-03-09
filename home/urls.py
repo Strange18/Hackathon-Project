@@ -14,6 +14,6 @@ urlpatterns = [
     path('like/<int:id>',complain_like_view,name='complain_like'),
     path('dislike/<int:id>',complain_dislike_view,name='complain_dislike'),
     path('idea_like/<int:id>',idea_like_view,name='idea_like'),
-    path('idea_dislike/<int:id>',idea_dislike_view,name='idea_dislike'),
-    
+    path('idea_dislike/<int:id>',idea_dislike_view,name='idea_dislike'),   
 ]
+
