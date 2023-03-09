@@ -26,4 +26,7 @@ Navigate to the folder where requirements.txt is present. Then type the followin
 pip install -r requirements.txt
 
 ```
+Teammates:
+@pragyanbhattarai04
+@Biplav20
 
